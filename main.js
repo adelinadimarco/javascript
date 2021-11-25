@@ -177,7 +177,7 @@ let productos = [{
         price: 20,
         enCarrito: 0
     },
-        name: "Chanel N°5",
+ {   name: "Chanel N°5",
         tag: "chanel5",
         price: 15,
         enCarrito: 0
