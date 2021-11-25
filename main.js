@@ -99,7 +99,9 @@ const imprimirDatos = () => {
 /**********************
  *     EVENTOS 
  **********************/
-document.getElementById("nuevo").addEventListener("click", () => {
+const nuevo = document.querySelector('#nuevo')
+
+nuevo.addEventListener("click", () => {
     guardarEnBaseDeDatos()
 })
 
