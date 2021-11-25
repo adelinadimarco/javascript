@@ -87,11 +87,9 @@ textarea::placeholder {
 
 header {
   margin: 0;
-  padding: 0;
-  padding-top: 0.3rem;
+  padding: 1rem;
   position: absolute;
   width: 100vw;
-  height: 10vh;
   overflow-x: hidden;
   display: inline-flex;
   flex-direction: row;
