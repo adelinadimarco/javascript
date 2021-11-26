@@ -9,17 +9,27 @@ body {
   font-family: 'Montserrat', sans-serif; }
 
 main {
-  padding: 3rem;
-  padding-top: 10vh;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   justify-content: center;
   align-content: center;
-  margin-left: 15rem;
+  margin-left: 20rem;
   margin-right: 15rem; }
+
+footer {
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-top: 3px solid black; }
+  footer p {
+    align-items: center;
+    justify-content: center;
+    font-weight: bold; }
 
 .form {
   font-family: "Montserrat", sans-serif;
   padding: 2rem;
-  font-size: 1.9rem;
+  font-size: 1.6rem;
   color: #ff466e;
   width: 32rem;
   display: block;
@@ -49,15 +59,15 @@ main {
     text-decoration: none;
     font-weight: bold;
     color: black;
-    font-size: 1.7rem; }
+    font-size: 1.5rem; }
 
 input::placeholder {
   color: black;
-  font-size: 1.7rem; }
+  font-size: 1.5rem; }
 
 textarea::placeholder {
   color: black;
-  font-size: 1.7rem; }
+  font-size: 1.5rem; }
 
 #mapa {
   height: auto;
@@ -65,11 +75,7 @@ textarea::placeholder {
   justify-content: center; }
 
 .bag {
-  font-size: 2rem; 
-  span {
-  font-size: 2rem;
-  color: red;}
-}
+  font-size: 2rem; }
 
 .buscador {
   width: 27rem;
@@ -85,17 +91,24 @@ textarea::placeholder {
   .buscador ion-icon {
     font-size: 1.5rem; }
 
+.break {
+  display: flex; }
+
+#formNuevo {
+  display: block !important;
+  padding: 1.5rem; }
+
 header {
   margin: 0;
   padding: 1rem;
-  position: absolute;
   width: 100vw;
   overflow-x: hidden;
   display: inline-flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid black;
+  position: sticky; }
 
 header nav {
   display: inline-flex;
@@ -120,15 +133,14 @@ a {
 .menuBoton {
   position: relative;
   display: flex;
-  width: 80px;
-  height: 80px;
   cursor: pointer; }
 
 .menuBurga {
   background: black;
   border-radius: 5px;
   width: 50px;
-  height: 6px; }
+  height: 6px;
+  margin: 1rem; }
 
 .menuBurga::before,
 .menuBurga::after {
@@ -166,12 +178,20 @@ a {
   max-height: 100%; }
 
 .contenedor-perfumes {
-  display: flex;
-  margin: 0 auto; }
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem; }
 
-.perfume img {
-  max-width: 15rem;
-  max-height: 15rem; }
+.perfume {
+  padding-right: 2rem; }
+  .perfume h3,
+  .perfume h4 {
+    align-content: center;
+    justify-content: center;
+    text-align: center; }
+  .perfume img {
+    max-width: 15rem;
+    max-height: 15rem; }
 
 .contenedorProductos {
   max-width: 700px;
@@ -190,12 +210,12 @@ a {
   width: 40%;
   align-items: center; }
 
-.precio {
+.precio-producto {
   width: 15%;
   display: flex;
   align-items: center; }
 
-.cantidad {
+.cantidad-producto {
   width: 30%;
   display: flex;
   align-items: center; }
@@ -206,42 +226,64 @@ a {
   align-items: center;
   border-bottom: 4px solid black; }
 
-// inyeccion al html en carrito
+.productoAlCarrito {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 4px solid black; }
 
 .productos {
   width: 100%;
   display: flex;
   flex-wrap: wrap; }
+  .productos img {
+    width: 75px; }
 
-.productos img {
-  width: 75px; }
+.precio, .cantidad {
+  border-bottom: 4px solid black; }
 
-.sumarACarrito {
-  position: absolute;
-  font-style: capitalize;
-  color: red;
-  cursor: pointer;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 70%;
-}
-
-.containerSumaTotal{
-  margin-top: 2rem;
+.bagTotalContainer {
   display: flex;
   justify-content: flex-end;
-  width: 96%;
-  padding: 0%;
-  ;
-}
+  width: 100%;
+  padding: 10px 0; }
+
+.bagTotalTitle {
+  width: 30%; }
+
+.bagTotal {
+  width: 10%; }
+
+.container,
+.container-products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-bottom: 100px; }
+
+.image {
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden; }
+
+.sumarACarrito {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  color: red; }
+
+/* ----------------- CART PAGE --------------- */
+.containerSumaTotal {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px 0; }
 
 .textoSuma {
-  width: 15%;
-  color: #6d06e2;
-}
+  width: 30%; }
 
 .sumaProductos {
-    width: 10%;
-}
-
-// css por Adelina Rodríguez Di Marco
+  width: 10%; }

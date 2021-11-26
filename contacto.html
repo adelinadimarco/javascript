@@ -13,79 +13,84 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
-  <header>
 
-    <div class="menuBoton">
-      <div class="menuBurga"></div>
-    </div>
+  <body>
+    <header>
 
-    <a href="index.html">
-      <h2>MAGIC PARFUMARIE</h2>
-    </a>
+      <div class="menuBoton">
+        <div class="menuBurga"></div>
+      </div>
 
-    <div class="buscador">
-      <input type="text" placeholder="Buscar">
-      <ion-icon name="search-outline"></ion-icon>
-    </div>
+      <a href="index.html">
+        <h2>MAGIC PARFUMARIE</h2>
+      </a>
 
-    <ul>
-      <li><a href="index.html">Tienda</a></li>
+      <div class="buscador">
+        <input type="text" placeholder="Buscar">
+        <ion-icon name="search-outline"></ion-icon>
+      </div>
 
-      <li class="bag">
-        <a href="carrito.html">
-          <ion-icon name="bag-outline"></ion-icon>
-        </a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
+      <ul>
+        <li><a href="index.html">Tienda</a></li>
 
-  </header>
+        <li class="bag">
+          <a href="carrito.html">
+            <ion-icon name="bag-outline"></ion-icon><span style="color:red; font-size: 2rem;">0</span>
+          </a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
 
+    </header>
 
+    <!-- Empieza Index -->
+    <main>
+      <h1>Contacto</h1>
 
-  <main>
-    <h1>Contacto</h1>
+      <div class="form">
 
-    <div class="form">
+        <form action="cargado.php" method="get " enctype="text/plain">
 
-      <form action="cargado.php" method="get " enctype="text/plain">
+          <label>Nombre</label>
+          <input type="text" name="name" placeholder="Ingresá tu nombre" />
 
-        <label>Nombre</label>
-        <input type="text" name="name" placeholder="Ingresá tu nombre" />
+          <label>Teléfono</label>
+          <input type="tel" name="phone" placeholder="Dejanos tu número" />
 
-        <label>Teléfono</label>
-        <input type="tel" name="phone" placeholder="Dejanos tu número" />
+          <label>E-Mail</label>
+          <input type="email" name="e-mail" placeholder="Ingresá tu correo electrónico" />
 
-        <label>E-Mail</label>
-        <input type="email" name="e-mail" placeholder="Ingresá tu correo electrónico" />
+          <label>Mensaje</label>
+          <textarea name="msg" placeholder="Dejanos tu mensaje" rows="4"></textarea>
 
-        <label>Mensaje</label>
-        <textarea name="msg" placeholder="Dejanos tu mensaje" rows="4"></textarea>
+          <br>
+          <input type="submit" value="Enviar" class="button" />
 
-        <br>
-        <input type="submit" value="Enviar" class="button" />
+        </form>
+      </div>
 
-      </form>
-    </div>
+      <section>
+        <h4>DÓNDE ESTAMOS</h4>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.9546512531092!2d-58.42070920854328!3d-34.60645489756611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca60573fa6d3%3A0x6d7b7ee23443de22!2sJer%C3%B3nimo%20Salguero%20350%2C%20C1198%20CABA!5e0!3m2!1ses-419!2sar!4v1626230347049!5m2!1ses-419!2sar"
+          allowfullscreen="true" loading="lazy" id="mapa"></iframe>
+      </section>
 
-    <section>
-      <h4>DÓNDE ESTAMOS</h4>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.9546512531092!2d-58.42070920854328!3d-34.60645489756611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca60573fa6d3%3A0x6d7b7ee23443de22!2sJer%C3%B3nimo%20Salguero%20350%2C%20C1198%20CABA!5e0!3m2!1ses-419!2sar!4v1626230347049!5m2!1ses-419!2sar"
-        allowfullscreen="true" loading="lazy" id="mapa"></iframe>
-    </section>
+    </main>
+    <!-- termina -->
 
-  </main>
-  <!-- termina -->
+    <footer>
+      <p>Adelina Rodríguez Di Marco | JavaScript - CoderHouse 2021</p>
+    </footer>
 
-  <footer>
-    <p>Adelina Rodríguez Di Marco | JavaScript - CoderHouse 2021</p>
-  </footer>
+    <script src="js/main.js"></script>
+    <script src="js/nuevo.js"></script>
 
-  <script src="main.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-</body>
+  </body>
 
 </html>
