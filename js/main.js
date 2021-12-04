@@ -1,5 +1,6 @@
 // para función de carrito e-commerce
 //    VARIABLES
+
 let carrito = document.querySelectorAll('.sumarACarrito');
 
 let productos = [{
@@ -59,7 +60,7 @@ for (let i = 0; i < carrito.length; i++) {
     })
 }
 
-// funciones para sumar el número en el ícono del carrito
+// funciones para sumar cantidad en el ícono del carrito
 function cargarNumeroCarrito() {
     let cantidadProductos = localStorage.getItem('numeroIcono');
     if (cantidadProductos) {
@@ -67,69 +68,58 @@ function cargarNumeroCarrito() {
     }
 }
 
-// 
 function numeroIcono(producto) {
+    // console.log(" a vergaston ", producto)
     let cantidadProductos = localStorage.getItem("numeroIcono");
-    cantidadProductos = parseInt(cantidadProductos);
 
-    let itemEnCarrito = localStorage.getItem("productosEnCarrito");
-    itemEnCarrito = JSON.parse(itemEnCarrito);
+    cantidadProductos = parseInt(cantidadProductos);
 
     if (cantidadProductos) {
         localStorage.setItem("numeroIcono", cantidadProductos + 1);
         document.querySelector(".bag span").textContent = cantidadProductos + 1;
-    } else if (cantidadProductos) {
-        localStorage.setItem("numeroIcono", cantidadProductos - 1);
-        document.querySelectorAll(".bag span").textContent = cantidadProductos - 1;
     } else {
         localStorage.setItem("numeroIcono", 1);
-        document.querySelectorAll(".bag span").textContent = 1;
+        document.querySelector(".bag span").textContent = 1;
     }
     setItem(producto);
 }
 
 // función de agregar items a carrito
 function setItem(producto) {
-    let cantidadProductos = localStorage.getItem("numeroIcono");
-    cantidadProductos = parseInt(cantidadProductos);
-
-    let itemEnCarrito = localStorage.getItem("productosEnCarrito");
-    itemEnCarrito = JSON.parse(itemEnCarrito);
+    let itemEnCarrito = localStorage.getItem("productosEnCarrito")
+    itemEnCarrito = JSON.parse(itemEnCarrito)
 
     if (itemEnCarrito != null) {
 
-        const productoActual = producto.tag;
-
-        if (itemEnCarrito[productoActual] == undefined) {
+        if (itemEnCarrito [producto.tag] == undefined) {
             itemEnCarrito = {
                 ...itemEnCarrito,
-                [productoActual]: producto
+                [producto.tag]: producto
             }
         }
 
-        itemEnCarrito[productoActual].enCarrito += 1;
+        itemEnCarrito[producto.tag].enCarrito += 1;
     } else {
         producto.enCarrito = 1;
         itemEnCarrito = {
-            [productoActual]: producto
-        };
+            [producto.tag]: producto
+        }
     }
+
     localStorage.setItem("productosEnCarrito", JSON.stringify(itemEnCarrito))
-} // se cierra función
+}
 
 // función para calcular el costo total del carrito
-function costoTotal(producto, action) {
+function costoTotal(producto) {
 
     let costoTotal = localStorage.getItem("costoTotal")
 
     console.log("el costo total es", costoTotal);
+    console.log(typeof costoTotal);
 
     if (costoTotal != null) {
         costoTotal = parseInt(costoTotal);
-        localStorage.setItem("costoTotal", costoTotal + producto.precio)
-    } else if (action) {
-        costoTotal = parseInt(costoTotal);
-        localStorage.setItem("costoTotal", costoTotal - producto.precio)
+        localStorage.setItem("costoTotal", costoTotal + producto.precio);
     } else {
         localStorage.setItem("costoTotal", producto.precio)
     }
@@ -141,35 +131,35 @@ function displayCarrito() {
     itemEnCarrito = JSON.parse(itemEnCarrito);
 
     let containerProductos = document.querySelector(".productos");
-
     let costoTotal = localStorage.getItem("costoTotal");
-    costoTotal = parseInt(costoTotal)
 
     if (itemEnCarrito && containerProductos) {
         containerProductos.innerHTML = "";
+
         // se inyectan los productos en html       
         Object.values(itemEnCarrito).map((item) => {
-            containerProductos.innerHTML +=
+            containerProductos.innerHTML += `
 
-                `<div class="productoAlCarrito">
+        <div class="productoAlCarrito">
           <ion-icon name="close-circle"></ion-icon>
-             <img src="./assets/${item.tag}.png" />
+             <img src="./assets/${item.tag}.jpg" />
              <span>${item.nombre}</span>
         </div>  
         
         <div class="precio">$${item.precio}</div>
         
-        <div class="cantidad">   
-           
-          <ion-icon name="remove-circle" class="menos"></ion-icon>
+        <div class="cantidad">       
+          <ion-icon name="remove-circle"></ion-icon>
              ${item.enCarrito}
-          <ion-icon name="add-circle" class="mas"></ion-icon>
+          <ion-icon name="add-circle"></ion-icon>
         </div>
 
         <div class="total">$${item.enCarrito * item.precio}</div>
         `
         });
+
         // se inyectan los costos totales en html
+
         containerProductos.innerHTML +=
             `<div class=containerSumaTotal>
      <h4 class= textoSuma>
@@ -183,9 +173,9 @@ function displayCarrito() {
         botonBorrar();
         botonesCantidad();
     }
-} // cierra función de inyectar html
+}
 
-// función de botones para mas y menos
+// configuracion de botones para mas y menos
 function botonesCantidad() {
     let menosBoton = document.querySelectorAll('.menos');
     let masBoton = document.querySelectorAll('.mas');
@@ -197,15 +187,15 @@ function botonesCantidad() {
     for (let i = 0; i < masBoton.length; i++) {
         menosBoton[i].addEventListener('click', () => {
             console.log(itemEnCarrito);
-            cantidadActual = menosBoton[i].parentElement.querySelectorAll('span').textContent;
+            cantidadActual = menosBoton[i].parentElement.querySelector('span').textContent;
             console.log(cantidadActual);
-            productoActual = menosBoton[i].parentElement.previousElementSibling.previousElementSibling.querySelectorAll('span').textContent.toLocaleLowerCase().replace(/ /g, '').trim();
+            productoActual = menosBoton[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLocaleLowerCase().replace(/ /g, '').trim();
             console.log(productoActual);
 
-            if (itemEnCarrito[productoActual].enCarrito > 1) {
-                itemEnCarrito[productoActual].enCarrito -= 1;
-                numeroIcono(itemEnCarrito[productoActual], "menos");
-                costoTotal(itemEnCarrito[productoActual], "menos");
+            if (itemEnCarrito[productoActual].inCart > 1) {
+                itemEnCarrito[productoActual].inCart -= 1;
+                numeroIcono(itemEnCarrito[productoActual], "decrease");
+                costoTotal(itemEnCarrito[productoActual], "decrease");
                 localStorage.setItem('productosEnCarrito', JSON.stringify(itemEnCarrito));
                 displayCarrito();
             }
@@ -213,16 +203,15 @@ function botonesCantidad() {
 
         masBoton[i].addEventListener('click', () => {
             console.log(itemEnCarrito);
-            cantidadActual = masBoton[i].parentElement.querySelectorAll('span').textContent;
+            cantidadActual = masBoton[i].parentElement.querySelector('span').textContent;
             console.log(cantidadActual);
-            productoActual = masBoton[i].parentElement.previousElementSibling.previousElementSibling.querySelectorAll('span').textContent.toLocaleLowerCase().replace(/ /g, '').trim();
+            productoActual = masBoton[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLocaleLowerCase().replace(/ /g, '').trim();
             console.log(productoActual);
 
             itemEnCarrito[productoActual].enCarrito += 1;
             numeroIcono(itemEnCarrito[productoActual]);
             costoTotal(itemEnCarrito[productoActual]);
             localStorage.setItem('productosEnCarrito', JSON.stringify(itemEnCarrito));
-
             displayCarrito();
         });
     }
@@ -235,22 +224,19 @@ function botonBorrar() {
     let costoCarrito = localStorage.getItem("costoTotal");
     let numeroIcono = localStorage.getItem('productosEnCarrito');
     numeroIcono = JSON.parse(numeroIcono);
-    let productoNombre; // 
+    let productoNombre;
     console.log(numeroIcono);
 
     for (let i = 0; i < botonBorrar.length; i++) {
         botonBorrar[i].addEventListener('click', () => {
+            productName = botonBorrar[i].parentElement.textContent.toLocaleLowerCase().replace(/ /g, '').trim();
 
-            productoNombre = botonBorrar[i].parentElement.textContent.toLocaleLowerCase().replace(/ /g, '').trim();
+            localStorage.setItem('numeroIcono', cantidadProductos - numeroIcono[productoNombre].enCarrito);
+            localStorage.setItem('costoTotal', costoCarrito - (numeroIcono[productoNombre].precio * numeroIcono[productoNombre].enCarrito));
 
-            localStorage.setItem('numeroIcono', cantidadProductos - itemEnCarrito[productoNombre].enCarrito);
-            localStorage.setItem('costoTotal', costoCarrito - (itemEnCarrito[productoNombre].precio * itemEnCarrito[productoNombre].enCarrito));
+            delete numeroIcono[productoNombre];
+            localStorage.setItem('productosEnCarrito', JSON.stringify(numeroIcono));
 
-            delete itemEnCarrito[productoNombre];
-            localStorage.setItem('productosEnCarrito', JSON.stringify(itemEnCarrito));
-
-            cargarNumeroCarrito();
-            displayCarrito();
         })
     }
 }
@@ -258,5 +244,3 @@ function botonBorrar() {
 // se llama a funciones
 cargarNumeroCarrito();
 displayCarrito();
-botonBorrar();
-botonesCantidad();
