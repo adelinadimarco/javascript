@@ -3,14 +3,14 @@
  *     ENTIDADES 
  **********************/
 
- class card {
+class card {
 
     constructor({
         imagen,
         marca,
         nombre,
         precio,
-        
+
     }) {
         this.imagen = imagen;
         this.marca = marca;
@@ -34,7 +34,7 @@ const crearTarjeta = () => {
 
     const tarjeta = new card({
         imagen: document.getElementById("imagen").files[0].name,
-        marca: document.getElementById("marca").value,       
+        marca: document.getElementById("marca").value,
         nombre: document.getElementById("nombre").value,
         precio: document.getElementById("precio").value,
     })
@@ -99,7 +99,7 @@ const imprimirDatos = () => {
 /**********************
  *     EVENTOS 
  **********************/
-const nuevo = document.querySelector('#nuevo')
+const nuevo = document.querySelectorAll('#nuevo')
 
 nuevo.addEventListener("click", () => {
     guardarEnBaseDeDatos()
@@ -110,9 +110,9 @@ if (localStorage.getItem("listaDeco") != null) {
 }
 
 
-var loadFile = function(event) {
-	var image = document.getElementById('output');
-	image.src = URL.createObjectURL(event.target.files[0]);
+const loadFile = function (event) {
+    let image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
 };
 
 // para menú hamburguesa

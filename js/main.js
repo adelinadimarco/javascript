@@ -10,45 +10,45 @@ let productos = [{
         enCarrito: 0
     },
     {
-        name: "Givenchy L'Interdit",
+        nombre: "Givenchy L'Interdit",
         tag: "givenchylinterdit",
-        price: 4500,
+        precio: 4500,
         enCarrito: 0
     },
     {
-        name: "Dior Diorissimo",
+        nombre: "Dior Diorissimo",
         tag: "diorissimo",
-        price: 6000,
+        precio: 6000,
         enCarrito: 0
     },
     {
-        name: "Narciso Rodriguez For Her",
+        nombre: "Narciso Rodriguez For Her",
         tag: "nrforher",
-        price: 5500,
+        precio: 5500,
         enCarrito: 0
     },
     {
-        name: "Hermés Le Jardin Sur La Lagune",
+        nombre: "Hermés Le Jardin Sur La Lagune",
         tag: "hermes",
-        price: 6500,
+        precio: 6500,
         enCarrito: 0
     },
     {
-        name: "Armani Sí",
+        nombre: "Armani Sí",
         tag: "armanisi",
-        price: 3500,
+        precio: 3500,
         enCarrito: 0
     },
     {
-        name: "Chanel N°5",
+        nombre: "Chanel N°5",
         tag: "chanel5",
-        price: 5800,
+        precio: 5800,
         enCarrito: 0
     },
     {
-        name: "Dior J'Adore",
+        nombre: "Dior J'Adore",
         tag: "jadore",
-        price: 4800,
+        precio: 4800,
         enCarrito: 0
     }
 ];
