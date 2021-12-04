@@ -110,7 +110,7 @@ if (localStorage.getItem("listaDeco") != null) {
 }
 
 
-var loadFile = function(event) {
+const loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
@@ -136,3 +136,6 @@ menuBoton.addEventListener('click', () => {
         menuOpen = false;
     }
 })
+
+////////////////
+//   AJAX
