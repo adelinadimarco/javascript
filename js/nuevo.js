@@ -8,14 +8,14 @@ class card {
     constructor({
         imagen,
         marca,
-        nombre,
-        precio,
+        nombrePerfume,
+        precioPerfume,
 
     }) {
         this.imagen = imagen;
         this.marca = marca;
-        this.nombre = nombre;
-        this.precio = precio;
+        this.nombrePerfume = nombrePerfume;
+        this.precioPerfume = precioPerfume;
     }
 }
 
@@ -35,8 +35,8 @@ const crearTarjeta = () => {
     const tarjeta = new card({
         imagen: document.getElementById("imagen").files[0].name,
         marca: document.getElementById("marca").value,
-        nombre: document.getElementById("nombre").value,
-        precio: document.getElementById("precio").value,
+        nombre: document.getElementById("nombrePerfume").value,
+        precio: document.getElementById("precioPerfume").value,
     })
 
     let lista;
@@ -89,8 +89,8 @@ const imprimirDatos = () => {
       <div>
         <img>${obj.imagen}</img>
         <h3>${obj.marca}</h3>
-        <h3>${obj.nombre}</h3>
-        <h4>$${obj.precio}</h4>
+        <h3>${obj.nombrePerfume}</h3>
+        <h4>$${obj.precioPerfume}</h4>
       </div>
         `
     });
